@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Динамический Каталог - Прототип</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- СТАТИЧЕСКИЙ СКЕЛЕТ (Неизменяемая структура) -->
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">📚</span>
+                    <h1>Динамический Каталог</h1>
+                </div>
+
+                <div class="search-bar">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="🔍 Поиск по каталогу..."
+                        class="search-input"
+                    />
+                </div>
+
+                <nav class="user-menu">
+                    <button class="btn btn-secondary">Вход</button>
+                    <button class="btn btn-primary">Админ</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav">
+        <div class="container">
+            <ol class="breadcrumb" id="breadcrumb">
+                <li><a href="#" data-level="0">Главная</a></li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Category Info -->
+            <section class="category-info" id="categoryInfo">
+                <h2 id="categoryTitle">Добро пожаловать!</h2>
+                <p id="categoryDescription">
+                    Выберите категорию для просмотра содержимого
+                </p>
+                <div class="category-meta">
+                    <span class="meta-item" id="itemCount">8 категорий</span>
+                    <div class="category-tags" id="categoryTags"></div>
+                </div>
+            </section>
+
+            <!-- ДИНАМИЧЕСКИЙ КОНТЕНТ (Мозаичная Сетка) -->
+            <section class="catalog-grid" id="catalogGrid">
+                <!-- Динамически генерируемые карточки -->
+            </section>
+
+            <!-- Loading State -->
+            <div class="loading-state" id="loadingState" style="display: none;">
+                <div class="spinner"></div>
+                <p>Загрузка...</p>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <span class="empty-icon">📭</span>
+                <h3>Пусто</h3>
+                <p>В этой категории пока нет элементов</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="container">
+            <p>&copy; 2024 Динамический Каталог. Прототип системы.</p>
+            <nav class="footer-nav">
+                <a href="#">О проекте</a>
+                <a href="#">API</a>
+                <a href="#">Документация</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Modal for Item Details -->
+    <div class="modal" id="itemModal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modalBody">
+                <!-- Динамический контент модального окна -->
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
